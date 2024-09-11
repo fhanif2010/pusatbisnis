@@ -1,0 +1,130 @@
+.Login-Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.Login-Main {
+    max-width: 65vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    border-radius: 15px;
+}
+
+.Login-Content {
+    border-radius: 15px 0 0 15px;
+    overflow: hidden;
+    img{
+        object-fit:cover;
+        height: 60vh;
+        border-radius: inherit  ;
+    }
+}
+
+.Login-MainContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1,p {
+        margin: 0;
+    }
+}
+
+.Login-Section {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    gap: 6px;
+    width: 70%;
+
+    .btn-sign {
+        font-size: 17px;
+        border-radius: 8px;
+        height: 40px;
+        margin: 10px 0;
+        background-color: #1A2130;
+        color: white;
+        font-weight: 500;
+        border-width: 1px;
+        border-color: darkgrey;
+    }
+
+    .btn-sign:hover {
+        cursor: pointer;
+        background-color: white;
+        color: #1A2130;
+    }
+
+    .Or {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+
+        hr {
+            flex-grow: 1;
+        }
+
+        span {
+            margin: 0px 20px;
+            font-weight: 100;
+            cursor: default;
+        }
+
+    }
+
+    .btn-alt {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        button {
+            width: 220px;
+            height: 40px;
+            background-color: white;
+            border-radius: 8px;
+            border-width: 1px;
+            border-color: darkgrey;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+
+        img {
+            width: 20px;
+            margin-right: 5px;
+        }
+    }
+
+    span {
+        font-Weight: bold;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 1000px) {
+    .Login-Content{
+        display: none;
+    }
+    .Login-MainContent {
+        width: 100%;
+        h1{
+            font-size: 20px;
+        }
+        p, span{
+            font-size: 12px;
+        }    
+    }
+    .btn-alt {
+        display: flex;
+        gap: 10px;
+    }
+
+}
