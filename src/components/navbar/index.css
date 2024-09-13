@@ -1,0 +1,44 @@
+.component {
+    height: 60px;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    justify-content:space-around;
+    align-items: center;
+    img {
+        width: 40px;
+    }
+    button{
+        height: 38px;
+        width: 70px;
+        border-radius: 5px;
+        border-style: none;
+        color: white;
+        background-color: #264653;
+    }
+}
+
+.navigation {
+    ul{
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        padding: 0;
+        font-size: 20px
+    }
+  
+
+}
+
+@media (max-width: 700px) {
+    .component {
+        padding: 0 10px;
+        justify-content: space-between;
+    }
+    li {
+        display: none;
+    }
+}

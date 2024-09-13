@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { auth } from '../../config';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 import './index.css'
 import Input from '../../components/input';
@@ -10,6 +11,7 @@ import Outlook from '../../assets/icon/office.png';
 
 
 const Login = () => {
+    const navigate = useNavigate();
     const [isSignUp, setIsSignUp] = useState(false);
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -30,18 +32,21 @@ const Login = () => {
             if (isSignUp) {
                 if (password === confirmPassword) {
                     await createUserWithEmailAndPassword(auth, email, password)
-                    console.log('Register Berhasil')
+                    alert('Register Succsess')
+                    setTimeout(() => {
+                        setIsSignUp(false)
+                    }, 2000)
                 } else {
                     setError('password does not match')
                 }
             } else {
                 await signInWithEmailAndPassword(auth, email, password)
                 setError('')
-                console.log('login Berhasil')
+                navigate('/')
             }
         } catch (err) {
             setError('email or password worng')
-            
+
         }
     }
 
@@ -84,13 +89,13 @@ const SignIn = ({ handleSign, setEmail, setPassword, handleRegister, error }) =>
                 <Input type={"email"} placeholder={"Enter your email address"} onChange={(e) => setEmail(e.target.value)} />
                 <p>Password</p>
                 <Input type={"password"} placeholder={"Enter your password"} onChange={(e) => setPassword(e.target.value)} />
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                {/* <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <div style={{ display: 'flex' }}>
                         <input type="checkbox" defaultChecked style={{ cursor: 'pointer' }} />
                         <span style={{ color: "gray" }}>Remember Me</span>
                     </div>
                     <span style={{}}>Forget password</span>
-                </div>
+                </div> */}
                 <p style={{ color: 'red' }}>{error}</p>
                 <button className='btn-sign' onClick={handleSign}>Sign In</button>
                 <div className='Or'>
