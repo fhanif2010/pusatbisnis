@@ -1,7 +1,7 @@
-const Input = ({ type, placeholder}) => {
+const Input = ({ type, placeholder, onChange}) => {
     return(
         <>
-            <input type={type} placeholder={placeholder} 
+            <input type={type} placeholder={placeholder} onChange={onChange}
                 style={{ 
                          display: "inline-block",
                          border: "1px solid #ccc",

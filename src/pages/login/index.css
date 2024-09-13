@@ -8,6 +8,7 @@
 
 .Login-Main {
     max-width: 65vw;
+    max-height: 563px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -17,12 +18,11 @@
 
 .Login-Content {
     border-radius: 15px 0 0 15px;
+    width: 550px;
     overflow: hidden;
-    img{
-        object-fit:cover;
-        height: 60vh;
-        border-radius: inherit  ;
-    }
+    background-image: url('../../assets/img/Background.jpg');
+    background-position: center;
+    background-size: cover;
 }
 
 .Login-MainContent {
@@ -30,7 +30,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    h1,p {
+    padding: 50px 0;
+    max-width: 480px;
+    h1,
+    p {
         margin: 0;
     }
 }
@@ -81,6 +84,7 @@
         display: flex;
         justify-content: space-between;
         gap: 10px;
+
         button {
             width: 220px;
             height: 40px;
@@ -109,19 +113,24 @@
     }
 }
 
-@media (max-width: 1000px) {
-    .Login-Content{
+@media (max-width: 700px) {
+    .Login-Content {
         display: none;
     }
+
     .Login-MainContent {
         width: 100%;
-        h1{
+
+        h1 {
             font-size: 20px;
         }
-        p, span{
+
+        p,
+        span {
             font-size: 12px;
-        }    
+        }
     }
+
     .btn-alt {
         display: flex;
         gap: 10px;
