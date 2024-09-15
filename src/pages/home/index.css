@@ -5,6 +5,9 @@
     justify-content: center;
     padding: 40px 240px;
     box-sizing: border-box;
+    p,h2,h1{
+        margin: 0;
+    }
     .home-aside {
         background-color: rgba(31, 115, 126, 0.4);
         color: white;
@@ -20,11 +23,9 @@
         h2 {
             max-width: 500px;
             font-size: 200%;
-            margin: 0;
         }
         p {
             max-width: 500px;
-            margin: 0;
         }
         button {
             max-width: 150px;
@@ -46,10 +47,7 @@
         img{
             border-radius: 60px 0 60px 0;
             width: 30%;
-            object-fit: fill;
-        }
-        h1{
-            margin: 0;
+            object-fit: cover;
         }
     }
     
@@ -71,15 +69,36 @@
     .home-cards {
         display: flex;
         flex-direction: row;
-        gap: 20px;
-        img {
-            width: 20%;
+        gap: 40px;
+        justify-content: center;
+        .home-card{
+            max-width: 350px;
+            img {
+                width: 20%;
+            }
+            p{
+                max-height: 110px;
+                overflow: hidden;
+            }
         }
-        p{
-            max-height: 110px;
-            overflow: hidden;
+        .home-cardService{
+            width: 300px;
+            background-color: rgba(255, 255, 255, 0.158);
+            border-radius: 30px 0 30px 0;
+            padding-bottom: 10px;
+            img{
+                border-radius: 30px 0 0 0;
+                width: 100%;
+                height: 200px;
+                object-fit:cover;
+            }
+            h2,p {
+                max-height: 110px;
+                overflow: hidden;
+                margin: 10px 15px;
+                text-align: justify;
+            }
         }
-
     }
 }
 
@@ -96,9 +115,18 @@
             flex-direction: column;
             display: flex;
             padding: 0 30px;
+            align-items: center;
         }
         .home-card {
             text-align: center;
+        }
+        .home-content-about {
+            h1,p,a {
+                margin: 10px 20px;
+            }
+            img {
+                display: none;
+            }
         }
     }
 }
