@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { getStorage, ref, getDownloadURL, listAll } from 'firebase/storage';
+import { storage } from '../../config';
 import './index.css'
 
 import UTCC from '../../assets/img/utcc.jpg'
@@ -13,21 +15,44 @@ import service from '../../assets/icon/service.png'
 
 const Home = () => {
     const [backgroundImage, setBackgroundImage] = useState(0);
+    const [backgroundUrls, setBackgroundUrls] = useState([]);
 
-    const background = [Background, Cafe, Diklat, Klinik, Wedding];
+    // const backgroundRefs = ['Background', 'Cafe', 'Diklat2', 'Klinik', 'Wedding'];
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setBackgroundImage((prevImage) => (prevImage + 1) % background.length);
-        }, 10000);
+        const fetchImages = async () => {
+            try {
+                const folderRef = ref(storage, '/Image/landingpage');
+                const result = await listAll(folderRef);
+                const urls = await Promise.all(
+                    result.items.map(async (itemRef) => {
+                        const url = await getDownloadURL(itemRef);
+                        return url;
+                    })
+                );
+                console.log(folderRef)
+                setBackgroundUrls(urls);
+            } catch (error) {
+                console.error("Error fetching images: ", error);
+            }
+        };
+        fetchImages();
+    }, []);
 
-        return () => clearInterval(interval);
-    }, [background.length]);
+    useEffect(() => {
+        if (backgroundUrls.length > 0) {
+            const interval = setInterval(() => {
+                setBackgroundImage((prevImage) => (prevImage + 1) % backgroundUrls.length);
+            }, 15000);
+
+            return () => clearInterval(interval);
+        }
+    }, [backgroundUrls.length]);
 
     return (
         <div>
             <div className="home-container">
-                <div className="home-content" style={{ backgroundImage: `url(${background[backgroundImage]})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '90vh' }}>
+                <div className="home-content" style={{ backgroundImage: `url(${backgroundUrls[backgroundImage]})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '90vh' }}>
                     <div className="home-aside">
                         <h2>Developing Business and Cooperation Between Agencies to Develop Better</h2>
                         <p>Agency and institutional solutions, we pave the way for your organization's success by driving continuous improvement, innovation, and exceptional performance.</p>
@@ -41,20 +66,20 @@ const Home = () => {
                         <hr />
                     </div>
                     <div className="home-cards">
-                        <div className="home-card" style={{ backgroundColor: 'white', borderRadius: '8px',padding: '10px', textAlign: 'center' }}>
-                            <img src={Wedding} alt="" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+                        <div className="home-card" style={{ backgroundColor: 'white', borderRadius: '8px', padding: '10px', textAlign: 'center' }}>
+                            <img src={backgroundUrls} alt="" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                             <p>Webinar Barista Series 4</p>
                         </div>
-                        <div className="home-card" style={{ backgroundColor: 'white', borderRadius: '8px',padding: '10px', textAlign: 'center' }}>
-                            <img src={Wedding} alt="" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+                        <div className="home-card" style={{ backgroundColor: 'white', borderRadius: '8px', padding: '10px', textAlign: 'center' }}>
+                            <img src={backgroundUrls} alt="" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                             <p>Webinar Barista Series 4</p>
                         </div>
-                        <div className="home-card" style={{ backgroundColor: 'white', borderRadius: '8px',padding: '10px', textAlign: 'center' }}>
-                            <img src={Wedding} alt="" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+                        <div className="home-card" style={{ backgroundColor: 'white', borderRadius: '8px', padding: '10px', textAlign: 'center' }}>
+                            <img src={backgroundUrls} alt="" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                             <p>Webinar Barista Series 4</p>
                         </div>
-                        <div className="home-card" style={{ backgroundColor: 'white', borderRadius: '8px',padding: '10px', textAlign: 'center' }}>
-                            <img src={Wedding} alt="" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+                        <div className="home-card" style={{ backgroundColor: 'white', borderRadius: '8px', padding: '10px', textAlign: 'center' }}>
+                            <img src={backgroundUrls} alt="" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                             <p>Webinar Barista Series 4</p>
                         </div>
                     </div>
