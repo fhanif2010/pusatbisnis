@@ -52,7 +52,7 @@ const Home = () => {
     return (
         <div>
             <div className="home-container">
-                <div className="home-content" style={{ backgroundImage: `url(${backgroundUrls[backgroundImage]})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '90vh' }}>
+                <div className="home-landingPage" style={{ backgroundImage: `url(${backgroundUrls[backgroundImage]})`}}>
                     <div className="home-aside">
                         <h2>Developing Business and Cooperation Between Agencies to Develop Better</h2>
                         <p>Agency and institutional solutions, we pave the way for your organization's success by driving continuous improvement, innovation, and exceptional performance.</p>
@@ -103,7 +103,7 @@ const Home = () => {
                         <h2>What Services Are Available</h2>
                         <hr />
                     </div>
-                    <div>
+                    <div style={{ gap: '20px', alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
                         <div className="home-cards">
                             <div className="home-cardService">
                                 <img src={Wedding} alt="" />
@@ -126,6 +126,7 @@ const Home = () => {
                                 <p>Lorem Ipsume simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                             </div>
                         </div>
+                        <button style={{height: '30px', width: '10%', borderRadius: '9px', borderStyle: 'none', backgroundColor: 'rgba(233, 218, 218, 0.8)'}}>See More</button>
                     </div>
                 </div>
                 <div className="home-content">
@@ -136,6 +137,72 @@ const Home = () => {
                     <div className="home-cards">
                         <div className="home-card">
                             <img src={research} alt="" />
+                            <h2>Strategy & Research</h2>
+                            <p>Lorem Ipsume simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        </div>
+                        <div className="home-card">
+                            <img src={service} alt="" />
+                            <h2>Service</h2>
+                            <p>Lorem Ipsume simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        </div>
+                        <div className="home-card">
+                            <img src={manage} alt="" />
+                            <h2>Management & Marketing</h2>
+                            <p>Lorem Ipsume simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="home-content">
+                    <div className="home-banner">
+                        <h2>What People Say About Us</h2>
+                        <hr />
+                    </div>
+                    <div className="home-cards">
+                        <div className="home-cardQa">
+                            <img src={research} alt="" />
+                            <h4>Agustian Bahrul</h4>
+                            <h6>Klinik Pratama</h6>
+                            <p>Lorem Ipsume simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        </div>
+                        <div className="home-cardQa">
+                            <img src={service} alt="" />
+                            <h4>Septian David</h4>
+                            <h6>Klinik Pratama</h6>
+                            <p>Lorem Ipsume simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        </div>
+                        <div className="home-cardQa">
+                            <img src={manage} alt="" />
+                            <h4>Indah Rumsih</h4>
+                            <h6>Klinik Pratama</h6>
+                            <p>Lorem Ipsume simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        </div>
+                    </div>
+                </div>
+                <div className='home-content' style={{ backgroundColor: '#264653', color: 'white' }}>
+                    <div className="home-banner" style={{ color: 'white', justifyContent: 'center' }}>
+                        <hr />
+                        <h2>Our Partners</h2>
+                        <hr />
+                    </div>
+                    <div className='home-partner'>
+                        <img src={Background} alt="" />
+                        <img src={Background} alt="" />
+                        <img src={Background} alt="" />
+                        <img src={Background} alt="" />
+                        <img src={Background} alt="" />
+                        <img src={Background} alt="" />
+                        <img src={Background} alt="" />
+                        <img src={Background} alt="" />
+                        <img src={Background} alt="" />
+                        <img src={Background} alt="" />
+                        <img src={Background} alt="" />
+                        <img src={Background} alt="" />
+                        <img src={Background} alt="" />
+                        <img src={Background} alt="" />
+                        <img src={Background} alt="" />
+                    </div>
+                    <div className="home-cards">
+                        <div className="home-card">
                             <h2>Strategy & Research</h2>
                             <p>Lorem Ipsume simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                         </div>
