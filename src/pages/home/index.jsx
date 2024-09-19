@@ -13,6 +13,12 @@ import manage from '../../assets/icon/manage.png'
 import research from '../../assets/icon/research.png'
 import service from '../../assets/icon/service.png'
 
+import { FaPhoneAlt, FaYoutube, FaFacebookSquare } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { IoLogoWhatsapp } from "react-icons/io";
+import { MdEmail } from "react-icons/md";
+import { AiFillInstagram } from "react-icons/ai";
+
 const Home = () => {
     const [backgroundImage, setBackgroundImage] = useState(0);
     const [backgroundUrls, setBackgroundUrls] = useState([]);
@@ -52,7 +58,7 @@ const Home = () => {
     return (
         <div>
             <div className="home-container">
-                <div className="home-landingPage" style={{ backgroundImage: `url(${backgroundUrls[backgroundImage]})`}}>
+                <div className="home-landingPage" style={{ backgroundImage: `url(${backgroundUrls[backgroundImage]})` }}>
                     <div className="home-aside">
                         <h2>Developing Business and Cooperation Between Agencies to Develop Better</h2>
                         <p>Agency and institutional solutions, we pave the way for your organization's success by driving continuous improvement, innovation, and exceptional performance.</p>
@@ -126,7 +132,7 @@ const Home = () => {
                                 <p>Lorem Ipsume simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                             </div>
                         </div>
-                        <button style={{height: '30px', width: '10%', borderRadius: '9px', borderStyle: 'none', backgroundColor: 'rgba(233, 218, 218, 0.8)'}}>See More</button>
+                        <button style={{ height: '30px', width: '10%', borderRadius: '9px', borderStyle: 'none', backgroundColor: 'rgba(233, 218, 218, 0.8)' }}>See More</button>
                     </div>
                 </div>
                 <div className="home-content">
@@ -201,20 +207,35 @@ const Home = () => {
                         <img src={Background} alt="" />
                         <img src={Background} alt="" />
                     </div>
-                    <div className="home-cards">
-                        <div className="home-card">
-                            <h2>Strategy & Research</h2>
-                            <p>Lorem Ipsume simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                        </div>
-                        <div className="home-card">
+                    <div className='home-footer'>
+                        <div className="contain">
                             <img src={service} alt="" />
-                            <h2>Service</h2>
-                            <p>Lorem Ipsume simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                         </div>
-                        <div className="home-card">
-                            <img src={manage} alt="" />
-                            <h2>Management & Marketing</h2>
-                            <p>Lorem Ipsume simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        <div className="contain">
+                            Jl. Pd. Cabe Raya, Pd. Cabe Udik, Kec. Pamulang, Kota Tangerang Selatan, Banten 15418
+                        </div>
+                        <div className="contain" style={{ alignItems: "start", width: "300px" }}>
+                            <div className="contact">
+                                <IoLogoWhatsapp />
+                                0811-1516-737
+                            </div>
+                            <div className="contact">
+                                <FaPhoneAlt />
+                                021-7490941
+                            </div>
+                            <div className="contact">
+                                <MdEmail />
+                                ppbi@ecampus.ut.ac.id
+                            </div>
+                        </div>
+                        <div className="contain" style={{ width: "150px"}}>
+                            Stay Connected
+                            <div className="Sosmed" style={{ fontSize: '40px', display: 'flex', gap: '10px' }}>
+                                <FaYoutube />
+                                <AiFillInstagram />
+                                <FaXTwitter />
+                                <FaFacebookSquare />
+                            </div>
                         </div>
                     </div>
                 </div>

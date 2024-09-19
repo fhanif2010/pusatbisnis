@@ -167,6 +167,27 @@ p,h2,h1,h4,h6,hr {
             object-fit: cover;
         }
     }
+    .home-footer {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        img{
+            width: 100px;
+        }
+        .contain{
+            max-width: 300px;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .contact {
+                display: flex;
+                gap: 10px;
+            }
+        }
+    }
 }
 
 @media (max-width: 1200px) {
