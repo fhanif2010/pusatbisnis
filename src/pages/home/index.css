@@ -2,7 +2,12 @@ button:hover {
     cursor: pointer;
 }
 
-p,h2,h1,h4,h6,hr {
+p,
+h2,
+h1,
+h4,
+h6,
+hr {
     margin: 0;
 }
 
@@ -93,7 +98,12 @@ p,h2,h1,h4,h6,hr {
         flex-direction: row;
         gap: 40px;
         justify-content: center;
-
+        align-items: center;
+        margin-bottom: 20px;
+        .icon {
+            font-size: 25px;
+            cursor: pointer;
+        }
         .home-card {
             max-width: 350px;
 
@@ -132,7 +142,7 @@ p,h2,h1,h4,h6,hr {
         .home-cardQa {
             max-width: 350px;
             padding: 20px;
-            box-sizing:border-box;
+            box-sizing: border-box;
             justify-content: center;
             align-items: center;
             align-content: center;
@@ -144,7 +154,9 @@ p,h2,h1,h4,h6,hr {
             border-radius: 40px 40px 0 40px;
 
             img {
-                width: 20%;
+                width: 30%;
+                height: 30%;
+                border-radius: 50px
             }
 
             ;
@@ -155,51 +167,76 @@ p,h2,h1,h4,h6,hr {
             }
         }
     }
-    .home-partner{
+
+    .home-partner {
         display: flex;
         gap: 20px;
         max-width: 1440px;
         overflow: hidden;
-        img{
+
+        img {
             max-width: 100px;
             width: 100%;
-            height: 100px;
-            object-fit: cover;
+            height: 80px;
+            object-fit: contain;
         }
     }
+
     .home-footer {
-        margin-top: 30px;
+        margin-top: 40px;
         display: flex;
         justify-content: center;
         gap: 20px;
-        img{
-            width: 100px;
+
+        img {
+            width: 50px;
         }
-        .contain{
+
+        .contain,.contain-text {
             max-width: 300px;
-            font-size: 20px;
+            font-size: 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+
             .contact {
                 display: flex;
+                align-items: center;
                 gap: 10px;
+            }
+
+            .sosmed {
+                margin-top: 10px;
+                font-size: 30px;
+                display: flex;
+                gap: 10px;
+
+                .icon:hover {
+                    cursor: pointer;
+                    ;
+                }
             }
         }
     }
 }
 
 @media (max-width: 1200px) {
-    .home-content {
-        padding: 0;
 
+    .home-landingPage {
+        padding: 20px;
         .home-aside {
             width: 100%;
         }
+    }
+
+    .home-content {
+        padding: 0;
+
 
         .home-banner {
-            padding: 20px;
+            padding: 10px;
+            margin: 0 0 10px 0;
         }
 
         .home-cards {
@@ -224,6 +261,23 @@ p,h2,h1,h4,h6,hr {
             img {
                 display: none;
             }
+        }
+
+        .home-footer {
+            padding: 0 20px;
+            gap: 10px;
+            .contain-text {
+                display: none;
+            }
+            img {
+                display: none;
+            }
+        }
+        .home-partner {
+            padding: 0 20px;
+            max-width: 410px;
+            overflow: hidden;
+            box-sizing: border-box;
         }
     }
 }

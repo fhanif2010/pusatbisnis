@@ -7,8 +7,8 @@ import Navbar from "../components/navbar";
 const Navigation = () => {
     return (
         <>
-        <Navbar />
         <Router>
+        {location.pathname !== '/login' && <Navbar />}
             <Routes>
                 <Route path="/" exact Component={Home} />
                 <Route path="/login" Component={Login} />
