@@ -30,31 +30,32 @@ const Home = () => {
 
     // const backgroundRefs = ['Background', 'Cafe', 'Diklat2', 'Klinik', 'Wedding'];
 
+    const fetchImages = async () => {
+        try {
+            const folderRef = ref(storage, '/Image/landingpage');
+            const result = await listAll(folderRef);
+            const folderPartner = ref(storage, '/Image/partner');
+            const partner = await listAll(folderPartner)
+            const urls = await Promise.all(
+                result.items.map(async (itemRef) => {
+                    const url = await getDownloadURL(itemRef);
+                    return url;
+                })
+            );
+            const urlPartner = await Promise.all(
+                partner.items.map(async (itemRef) => {
+                    const urlPartner = await getDownloadURL(itemRef);
+                    return urlPartner;
+                })
+            );
+            setBackgroundUrls(urls);
+            setPartnerLogo(urlPartner);
+        } catch (error) {
+            console.error("Error fetching images: ", error);
+        }
+    };
     useEffect(() => {
-        const fetchImages = async () => {
-            try {
-                const folderRef = ref(storage, '/Image/landingpage');
-                const result = await listAll(folderRef);
-                const folderPartner = ref(storage, '/Image/partner');
-                const partner = await listAll(folderPartner)
-                const urls = await Promise.all(
-                    result.items.map(async (itemRef) => {
-                        const url = await getDownloadURL(itemRef);
-                        return url;
-                    })
-                );
-                const urlPartner = await Promise.all(
-                    partner.items.map(async (itemRef) => {
-                        const urlPartner = await getDownloadURL(itemRef);
-                        return urlPartner;
-                    })
-                );
-                setBackgroundUrls(urls);
-                setPartnerLogo(urlPartner);
-            } catch (error) {
-                console.error("Error fetching images: ", error);
-            }
-        };
+       
         fetchImages();
     }, []);
 

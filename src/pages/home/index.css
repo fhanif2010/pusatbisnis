@@ -183,7 +183,7 @@ hr {
     }
 
     .home-footer {
-        margin-top: 40px;
+        margin: 10px 0;
         display: flex;
         justify-content: center;
         gap: 20px;
@@ -275,9 +275,12 @@ hr {
         }
         .home-partner {
             padding: 0 20px;
-            max-width: 410px;
             overflow: hidden;
             box-sizing: border-box;
+            img {
+                width: 10%;
+                height: 100%;
+            }
         }
     }
 }
