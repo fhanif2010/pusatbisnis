@@ -8,7 +8,7 @@ const Navigation = () => {
     return (
         <>
         <Router>
-        {location.pathname !== '/login' && <Navbar />}
+        {location.pathname == '/login' || <Navbar />}
             <Routes>
                 <Route path="/" exact Component={Home} />
                 <Route path="/login" Component={Login} />
