@@ -240,7 +240,7 @@ hr {
         }
 
         .home-cards {
-            flex-direction: column;
+            flex-direction: row;
             display: flex;
             padding: 0 30px;
             align-items: center;

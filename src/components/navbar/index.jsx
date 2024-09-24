@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import Logo from '../../assets/img/logo.png';
 import './index.css';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+    const navigate = useNavigate();
     useEffect(() => {
         const navStyle = document.querySelector('.nav')
 
@@ -24,7 +26,7 @@ const Navbar = () => {
             <img src={Logo} />
             <div className='navigation'>
                 <ul>
-                    <li>Home</li>
+                    <li onClick={() => navigate('/')}>Home</li>
                     <li>News</li>
                     <div className="dropdown">
                         <li>Product</li>
@@ -36,7 +38,7 @@ const Navbar = () => {
                             <a>IT Solution</a>
                             <a>Green Cafe</a>
                             <a>Green Studio</a>
-                            <a>Green Cafe</a>
+                            <a>Green Studio</a>
                         </div>
                     </div>
                     <li>Contact</li>

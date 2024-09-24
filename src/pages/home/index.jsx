@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { getStorage, ref, getDownloadURL, listAll } from 'firebase/storage';
+import { ref, getDownloadURL, listAll } from 'firebase/storage';
 import { storage } from '../../config';
+import { database } from '../../config';
+import { ref as databaseRef, onValue } from 'firebase/database';
 import './index.css'
 
 import LogoWhite from '../../assets/img/logo-white.png'
@@ -28,7 +30,7 @@ const Home = () => {
     const [backgroundImage, setBackgroundImage] = useState(0);
     const [backgroundUrls, setBackgroundUrls] = useState([]);
 
-    // const backgroundRefs = ['Background', 'Cafe', 'Diklat2', 'Klinik', 'Wedding'];
+    const [event, setEvent] = useState();
 
     const fetchImages = async () => {
         try {
@@ -55,8 +57,21 @@ const Home = () => {
         }
     };
     useEffect(() => {
-       
-        fetchImages();
+        const fetchData = async () => {
+            const dataFetchRef = databaseRef(database, '/event'); 
+    
+            const unsubscribe = onValue(dataFetchRef, (snapshot) => {
+                const fetchData = snapshot.val();
+                setEvent(fetchData);
+            }, (error) => {
+                console.log("Error fetching event data:", error); 
+            });
+    
+            return () => unsubscribe(); // Cleanup function
+        };
+        console.log("ini event  : ",event)
+        fetchImages(); // Fetch images
+        fetchData();
     }, []);
 
     useEffect(() => {
@@ -88,20 +103,8 @@ const Home = () => {
                     <div className="home-cards">
                         <IoIosArrowDropleft className="icon" />
                         <div className="home-card" style={{ backgroundColor: 'white', borderRadius: '8px', padding: '10px', textAlign: 'center' }}>
-                            <img src={backgroundUrls} alt="" style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
-                            <p>Webinar Barista Series 4</p>
-                        </div>
-                        <div className="home-card" style={{ backgroundColor: 'white', borderRadius: '8px', padding: '10px', textAlign: 'center' }}>
-                            <img src={backgroundUrls} alt="" style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
-                            <p>Webinar Barista Series 4</p>
-                        </div>
-                        <div className="home-card" style={{ backgroundColor: 'white', borderRadius: '8px', padding: '10px', textAlign: 'center' }}>
-                            <img src={backgroundUrls} alt="" style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
-                            <p>Webinar Barista Series 4</p>
-                        </div>
-                        <div className="home-card" style={{ backgroundColor: 'white', borderRadius: '8px', padding: '10px', textAlign: 'center' }}>
-                            <img src={backgroundUrls} alt="" style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
-                            <p>Webinar Barista Series 4</p>
+                            <img src={event.img} alt="" style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
+                            <p>{event.title}</p>
                         </div>
                         <IoIosArrowDropright className="icon" />
                     </div>

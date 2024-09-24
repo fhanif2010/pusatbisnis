@@ -1,8 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
+import { getDatabase } from "firebase/database";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -11,6 +11,7 @@ import { getStorage } from "firebase/storage";
 const firebaseConfig = {
   apiKey: "AIzaSyBHsedXUS9PY_49M9TUeIg56XeOzsicujo",
   authDomain: "ppbi-de75f.firebaseapp.com",
+  databaseURL: "https://ppbi-de75f-default-rtdb.asia-southeast1.firebasedatabase.app/",
   projectId: "ppbi-de75f",
   storageBucket: "ppbi-de75f.appspot.com",
   messagingSenderId: "520691332856",
@@ -20,6 +21,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 export const auth = getAuth(app);
 export const storage = getStorage(app);
+export const database = getDatabase(app);
