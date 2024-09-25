@@ -58,18 +58,16 @@ const Home = () => {
     };
     useEffect(() => {
         const fetchData = async () => {
-            const dataFetchRef = databaseRef(database, '/event'); 
-    
+            const dataFetchRef = databaseRef(database, '/event');
+
             const unsubscribe = onValue(dataFetchRef, (snapshot) => {
                 const fetchData = snapshot.val();
-                setEvent(fetchData);
+                setEvent(fetchData ? Object.values(fetchData) : []);
             }, (error) => {
-                console.log("Error fetching event data:", error); 
+                console.log("Error fetching event data:", error);
             });
-    
             return () => unsubscribe(); // Cleanup function
         };
-        console.log("ini event  : ",event)
         fetchImages(); // Fetch images
         fetchData();
     }, []);
@@ -102,10 +100,12 @@ const Home = () => {
                     </div>
                     <div className="home-cards">
                         <IoIosArrowDropleft className="icon" />
-                        <div className="home-card" style={{ backgroundColor: 'white', borderRadius: '8px', padding: '10px', textAlign: 'center' }}>
-                            <img src={event.img} alt="" style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
-                            <p>{event.title}</p>
-                        </div>
+                        {event.map((singleEvent) => (
+                            <div key={singleEvent.id}className="home-card" style={{ backgroundColor: 'white', borderRadius: '8px', padding: '10px', textAlign: 'center' }}>
+                                <img src={singleEvent.img} alt="" style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
+                                <p>{singleEvent.title}</p>
+                            </div>
+                        ))}
                         <IoIosArrowDropright className="icon" />
                     </div>
                 </div>
